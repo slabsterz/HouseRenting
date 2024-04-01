@@ -4,13 +4,13 @@ pipeline {
         stage('Build') {
             steps {
                 // Use MSBuild to build your C# project
-                bat '"C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Current\Bin\amd64\MSBuild.exe" HouseRentingSystem/t:Build'
+                bat '"C:/Program Files/Microsoft Visual Studio/2022/Community/MSBuild/Current/Bin/amd64/MSBuild.exe" HouseRentingSystem/t:Build'
             }
         }
         stage('Test') {
             steps {
-                // Use MSTest, NUnit, or xUnit for running tests
-                bat 'dotnet test YourProject.Tests/YourProject.Tests.csproj'
+                // Use dotnet CLI to run tests
+                bat 'dotnet test HouseRentingSystem.Tests/HouseRentingSystem.Tests.csproj'
             }
         }
     }
