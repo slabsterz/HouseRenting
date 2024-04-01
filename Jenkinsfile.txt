@@ -1,15 +1,18 @@
 pipeline {
     agent any
     stages {
+        stage('Restore') {
+            steps {
+                bat 'dotnet restore HouseRentingSystem.sln'
+            }
+        }
         stage('Build') {
             steps {
-                // Use MSBuild to build your C# project
-                bat '"C:/Program Files/Microsoft Visual Studio/2022/Community/MSBuild/Current/Bin/amd64/MSBuild.exe" HouseRentingSystem.sln /t:Build'
+                bat 'dotnet build HouseRentingSystem.sln --configuration Release'
             }
         }
         stage('Test') {
             steps {
-                // Use dotnet CLI to run tests
                 bat 'dotnet test HouseRentingSystem.Tests/HouseRentingSystem.Tests.csproj'
             }
         }
