@@ -4,7 +4,7 @@ pipeline {
         stage('Build') {
             steps {
                 // Use MSBuild to build your C# project
-                bat 'msbuild YourSolution.sln /t:Build'
+                bat '"C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Current\Bin\amd64\MSBuild.exe" HouseRentingSystem/t:Build'
             }
         }
         stage('Test') {
